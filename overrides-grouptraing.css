@@ -1,0 +1,663 @@
+.zoezi-grouptraining .list .item .content .location {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    left: 0px;
+    bottom: 8px;
+    font-size: 13px;
+    font-family: 'pp condensed';
+    background: #f7eeee;
+    width: 60px;
+    color: #6a6a6a;
+    height: 14px !important;
+    line-height: 13px;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.zoezi-grouptraining .list .item .image-block .duration {
+    top: 35px !important;
+}
+
+
+
+
+.zoezi-grouptraining .zoezi-button-thin.float-right.v-btn.v-btn--is-elevated.v-btn--has-bg.v-size--default.primary {
+margin-top: 40px;
+ border-radius: 20px;
+ 
+}
+
+
+
+.zoezi-grouptraining .list .item-day {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+
+
+
+
+
+ 
+.zoezi-grouptraining .list-day {
+    background: #eef5f9;
+}
+
+
+
+
+
+:root {
+--grouptraining-bg: #242933;
+    
+--time-font: 'pp narrow';
+    
+--location-font-size: 10px;
+--location-font-family: 'pp narrow';
+--location-font-size: 10px;
+--location-color: #ffffff;
+    
+--duration-color: var(--gt-secondary-text);
+    
+--class-name-padding-left: 10px;
+--class-name-font-family: 'pp narrow';
+--class-name-font-size: 20px;
+--class-name-line-height: 1.2;
+    
+--booked-background-color: #9cfa9c;
+--cued-row-color: #ECEDF2;
+--booked-text-color: #242933;
+--qued-text-color: orange;
+    
+--list-item-border: #cbcbcb;
+--gt-subtle-border: #C6C6C8;
+--primary-red: #ff0055;
+--item-day-bg: #d8e4ea;
+--gt-secondary-text: #5a6e7d;
+--gt-primary-text: #242933;
+    
+    
+--day-scroller-bg: rgba(255, 255, 255, 0.85);
+--day-scroller-btn-color: #626D83;
+--day-scroller-btn-color: #C6C6C8;
+
+}
+
+
+.v-input--selection-controls.v-input--dense .v-input--selection-controls__ripple {
+    width: 28px;
+    height: 28px;
+    left: -9px;
+    background: #e2dfdf;
+    border: 1px solid navajowhite;
+    border-radius: 50%; /* Gör checkboxen rund */
+    transition: 0.3s ease, border 0.3s ease; /* Lägg till en mjuk övergång */
+}
+
+
+.v-input--selection-controls__ripple.primary--text {
+    background: #6200ea !important; /* Lila bakgrund */
+    border-color: #bb86fc !important; /* Ljusstarkare lila kant */
+    box-shadow: 0 0 8px rgba(98, 0, 234, 0.5) !important; /* Ljuslila glöd */
+}
+
+/* Stil för markerad ikon (check-mark eller cirkel) */
+.v-input--selection-controls.v-input--dense.v-input--is-active .v-icon {
+    color: white; /* Ikonen blir vit för att sticka ut */
+}
+
+
+.boka-col.col{
+padding: 0px !important;
+margin: 0px !important;
+    }
+
+
+
+.group-training-wrapper {
+    margin: 0 auto; /* Centrerar innehållet */
+    max-width: 1200px; /* Ange en maxbredd för större skärmar */
+    padding: 0 16px; /* Lägger till inre marginaler för att undvika att innehållet når kanterna */
+    width: 100%; /* Gör att elementet tar upp hela bredden av skärmen */
+    box-sizing: border-box; /* Ser till att padding räknas in i bredden */
+}
+
+@media (max-width: 768px) {
+    .group-training-wrapper {
+        padding: 0 0px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .zoezi-grouptraining .list .item .image-block .time {
+        left: 0px !important;
+    }
+}
+
+
+
+
+
+
+.zoezi-grouptraining .day-scroller {
+    font-size: 13px;
+    position: fixed !important;
+    top: auto !important;
+    background: var(----day-scroller-bg) !important;
+    bottom: 0 !important;
+    backdrop-filter: blur(28.5px);
+    -webkit-backdrop-filter: blur(28.5px);
+    left: 0 !important;
+    right: 0 !important;
+    overflow: auto;
+    border-radius: 10px;
+    margin: 0 2px !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+    transform: translateY(100%) !important;
+    opacity: 0;
+    z-index: 20 !important;
+    scroll-behavior: smooth;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.day-scroller .d-flex {
+    justify-content: center;
+}
+
+.day-scroller .d-flex.mt-2 {
+    margin-left: 60px !important;
+}
+
+.day-scroller .d-flex .z-1of8 {
+    margin: 1px;
+}
+
+
+.day-scroller .zoezi-button-thin .v-btn--is-elevated:not(.primary) {
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--day-scroller-btn-color) !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: scale(0.99);
+    transition: all 0.2s ease-in-out;
+}
+
+.day-scroller .zoezi-button-thin .v-btn--is-elevated.primary {
+    color: var(--day-scroller-btn-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    background: var(--core-icon) !important;
+}
+
+.zoezi-grouptraining .d-flex .week-marker:last-child{
+display: none !important;
+}
+
+.day-scroller.show {
+    transform: translateY(0);
+     opacity: 0.8;
+}
+
+
+/* TOP LEFT CLUB SELECTOR */ 
+
+.top-left-club-selector {
+    position: fixed;
+    left: 15px;
+    top: 20px;
+    z-index: 20;
+}
+
+/* WRAPPER */ 
+
+
+
+.row.group-training-section {
+    justify-content: center;
+}
+
+/* FILTER BTN */ 
+
+.filter-btn-wrapper {
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+}
+
+/* HIDE FILTER */ 
+
+.zoezi-grouptraining.desktop-filter{ 
+    display: none;
+    }
+
+
+.zoezi-grouptraining .primary.v-card.v-card--flat.v-card--link {
+    display: none !important;
+}
+
+/* FILTER SUMMARY */ 
+
+.zoezi-grouptraining .filter-summary {
+    background: var(--booked-row-color) !important;
+    color: var(--gt-secondary-text) !important;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-summary .primary--text {
+    color: var(--gt-primary-text) !important;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+/* HIDE EMPTY DAYS */ 
+
+.zoezi-grouptraining.hide-days .mamma.list-day:has(.text--secondary), 
+.zoezi-grouptraining.hide-days.senior .list-day:has(.text--secondary) {
+    display: none !important;
+}
+
+
+/* LIST ITEM */ 
+
+.zoezi-grouptraining .list .item {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0px !important;
+    padding-top: 12px !important;
+    padding-bottom: 15px !important;
+    overflow: hidden;
+    border-radius: 0px;
+    box-shadow: none;
+    transition: all .25s ease-in-out;
+    border-top: 1px solid var(--gt-subtle-border);
+}
+
+
+
+/* ITEM DAY */ 
+
+.zoezi-grouptraining .list .item-day {
+    top: 50px !important;
+    background: var(--item-day-bg);
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0px 0px 0px 0px !important;
+    margin-left: -4px !important;
+    z-index: 4;
+    margin-right: -4px !important;
+    padding-left: 20px !important;
+    margin-bottom: -2px;
+}
+
+.zoezi-grouptraining .list .item-day span, 
+.zoezi-grouptraining .list .item-day strong {
+    display: block;
+    line-height: 16px;
+    font-weight: 500;
+    font-size: 18px !important;
+    letter-spacing: -0.04em;
+    line-height: 35px !important;
+}
+
+
+
+    
+
+
+
+
+/* NO MESSY TRANSITION */ 
+.zoezi-grouptraining .list .item .image-block .time, 
+.zoezi-grouptraining .list .item .image-block .duration {
+  transition-delay: 600000000s  !important;
+}
+
+
+
+
+
+
+/* TIME */ 
+
+.zoezi-grouptraining .list .item .image-block {
+    overflow: visible !important;
+    height: 35px;
+    width: 75px;
+    flex-shrink: 0;
+    margin-top: 10px;
+    border-radius: 8px;
+    top: 0;
+    filter: brightness(1.2);
+    position: absolute;
+    background: none !important;
+}
+
+.zoezi-grouptraining .list .item .image-block .time {
+    font-size: 20px !important;
+    text-shadow: none;
+    color: var(--gt-primary-text);
+    text-align: center !important;
+    font-family: 'pp narrow' !important;
+    position: revert !important;
+    border-radius: 8px !important;
+    padding: 2px;
+    height: 0;
+    border-bottom-right-radius: 100px !important;
+    margin-top: -10px;
+    line-height: 50px;
+    padding-right: 15px;
+    width: 100px !important;
+}
+
+
+.zoezi-grouptraining .image-block .duration {
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-filter: none !important;
+    font-size: 12px !important;
+    overflow: visible !important;
+    display: flex;
+    white-space: nowrap;
+    flex-direction: row-reverse;
+    left: 0px !important;
+    margin-left: 15px;
+    border-radius: 10px !important;
+    padding-top: 2px !important;
+    line-height: 15px !important;
+    color: #ffffff !important;
+    height: 16px !important;
+    width: 60px !important;
+    padding-right: 7px !important;
+    font-family: digi !important;
+}
+
+
+
+
+
+
+
+
+
+.image-block .duration {
+    position: relative;
+}
+
+
+
+
+
+.image-block .duration::before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    left: 4px;
+    margin-top: -2px;
+    background-image: url(/api/utils/file/download?key=24a74163-d036-4e1e-9648-4ae44aaf6bca);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    transform: translateY(2px);
+}
+
+
+/* CONTENT */ 
+
+
+
+
+@media (min-width: 360px) {
+    .zoezi-grouptraining .list .item .content {
+        width: calc(100% - 160px) !important;
+        margin: 0px 0px 0px 0px;
+        padding: 0;
+    }
+}
+
+/* CLASS NAME */ 
+
+.zoezi-grouptraining .list .item .content .title {
+    padding-left: var(--class-name-padding-left) !important;
+    text-align: left !important;
+    font-family: 'pp narrow' !important;
+    font-size: 20px !important;
+    letter-spacing: 0px !important;
+    line-height: 30px !important;
+    margin-bottom: 15px !important;
+    margin-top: 2px !important;
+}
+
+   
+/* STAFF */ 
+
+.zoezi-grouptraining .list .item .content .staff {
+    left: 9px;
+    overflow: visible;
+    display: flex !important;
+    color: var(--gt-secondary-text);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-weight: 400 !important;
+    line-height: 25px;
+    gap: 5px;
+    font-weight: 500 !important;
+    text-align: center !important;
+    margin-top: -2px;
+    filter: brightness(1.2);
+    font-family: 'pp condensed';
+    font-size: 16px;
+}
+
+
+
+.zoezi-grouptraining .list .item .content .staff img {
+    width: 100% !important;
+    height: 100% !important;
+    margin-top: 3px;
+    filter: brightness(1.1) grayscale(1);
+}
+
+.zoezi-grouptraining .list .item .content .staff::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--class-color);
+    border-radius: 50%;
+    mix-blend-mode: color;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.7;
+    margin-top: 3px;
+}
+
+
+
+ 
+
+.zoezi-grouptraining .list .item .content .staff {
+    position: relative !important; 
+    z-index: 1 !important; 
+}
+
+
+
+
+
+
+
+.zoezi-grouptraining .list .item .content .location .v-icon.v-icon {
+    font-size: 9px !important;
+    background: var(--class-color);
+    margin-right: 5px;
+    color: var(--class-color) !important;
+    filter: brightness(1.5);
+    margin-bottom: 3px;
+    border-radius: 3px;
+}
+
+
+/* BOOK BUTTON WRAPPER */ 
+
+.zoezi-grouptraining .list .item .zoezi-workout-book-button {
+    overflow: visible !important;
+    margin: auto !important;
+    position: absolute !important;
+    right: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 70px !important;
+}
+
+/* BOOK/CUE/INFO V-BTN */ 
+
+.zoezi-grouptraining .zoezi-workout-book-button .zoezi-button-thin.primarytext--text.v-btn.v-btn--is-elevated.v-btn--has-bg.v-size--default {
+    height: 35px !important;
+    min-width: 47px !important;
+    max-width: 47px !important;
+    max-height: 35px !important;
+    background: #242933 !important;
+}
+
+/* BOOK V-BTN CONTENT */ 
+
+.zoezi-workout-book-button .zoezi-button-thin.primarytext--text.v-btn.v-btn--is-elevated.v-btn--has-bg.v-size--default.primary:not(.info-button) .v-btn__content::before {
+    content: "";
+    background-image: url(https://coregymclub.zoezi.se/api/utils/file/download?key=65c87fdd-7ba2-46de-b8a6-e33c8dfec740);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* CUE V-BTN */ 
+
+/* INFO V-BTN */ 
+
+.zoezi-workout-book-button .text-center {
+    font-size: 16px;
+    white-space: nowrap;
+    margin-top: 5px;
+    font-family: 'pp condensed';
+}
+
+/* BOOKED LIST */ 
+
+.zoezi-grouptraining .list .item .zoezi-booked-list {
+    border-top: none !important;
+}
+
+.zoezi-workout-book-user-row .booked, .zoezi-workout-book-user-row .queued {
+    padding: 15px !important;
+    margin-top: 15px;
+}
+
+.zoezi-grouptraining .list .item .d-flex.booked .flex-grow-1 {
+    position: relative;
+    width: fit-content !important;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 16px !important;
+    border-radius: 8px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+}
+
+/* BOOKED COLOR */ 
+
+.zoezi-grouptraining .list .item .d-flex.booked:not(.queued) .flex-grow-1 {
+    color: var(--booked-text-color) !important;
+    background: var(--booked-background-color) !important;  
+}
+
+/* CUED COLOR */ 
+.zoezi-grouptraining .list .item .d-flex.queued .flex-grow-1 {
+    color: var(--cued-text-color) !important;
+    background: var(--cued-text-color) !important;  
+}
+
+
+
+/* AVBOKA BTN */ 
+
+.zoezi-grouptraining.group-training-section 
+.zoezi-button-thin.error--text {
+    background: #d71515 !important;
+    color: white !important;
+    width: 60px !important;
+    max-width: 60px !important;
+    min-width: 60px !important;
+    font-size: 11px;
+    border-radius: 4px !important;
+    margin-left: 15px;
+}
+
+.zoezi-grouptraining.group-training-section 
+.zoezi-button-thin.error--text .v-btn__content {
+    font-weight: 600 !important;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content > h3.title {
+  margin-bottom: 8px;
+}
+
+.content > .location {
+  display: inline-flex;
+  align-items: center;
+}
+
+.content > span + .location {
+  margin-left: 16px;
+}
+
+.staff {
+  margin-right: 8px;
+}
+
+@media (min-width: 360px) {
+    .zoezi-grouptraining .list .item .content {
+        width: calc(100% - 70px) !important;
+        margin: 0px 0px 0px 0px;
+        padding: 0;
+        padding-left: 80px !important;
+    }
+}
+
+.zoezi-grouptraining .list .item.cancelled {
+    background: #EDEDED;
+}
